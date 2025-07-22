@@ -109,18 +109,20 @@ public:
         loadFromFile();
     }
 
-    void addVenue() {
-        Venue v;
-        v.id = nextId++;
-        v.name = inputAlpha("Enter venue name: ");
-        v.location = inputAlpha("Enter location: ");
-        v.capacity = inputInt("Enter capacity: ");
-        v.price = inputDouble("Enter price: ");
-        v.isAvailable = true;
-        venues.push_back(v);
-        saveToFile();
-        cout << "Venue added!\n";
-    }
+	void addVenue() {
+    	cin.ignore(); 
+
+    	Venue v;
+    	v.id = nextId++;
+    	v.name = inputString("Enter venue name: ");
+    	v.location = inputString("Enter location: ");
+    	v.capacity = inputInt("Enter capacity: ");
+    	v.price = inputDouble("Enter price: ");
+    	v.isAvailable = true;
+    	venues.push_back(v);
+    	saveToFile();
+    	cout << "Venue added!\n";
+	}
 
     void updateVenue() {
         int id = inputInt("Enter venue ID to update: ");
@@ -426,4 +428,3 @@ int main() {
     mainMenu();
     return 0;
 }
-
